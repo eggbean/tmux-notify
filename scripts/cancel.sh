@@ -20,7 +20,7 @@ if [[ -f "$PID_FILE_PATH" ]]; then
   rm "${PID_DIR}/${PANE_ID}.pid"
 
   # Display success message
-  tmux display-message "Pane monitoring canceled..."
+  tmux display-message "Pane monitoring cancelled..."
 else
   tmux display-message "Pane not monitored..."
   exit 0

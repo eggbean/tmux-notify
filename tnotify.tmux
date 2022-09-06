@@ -14,9 +14,6 @@ if [[ ! -d $PID_DIR ]]; then
 fi
 
 # Bind plugin keys
-tmux unbind-key m
-tmux unbind-key M
-tmux unbind-key M-m
-tmux bind-key m run-shell -b "$CURRENT_DIR/scripts/notify.sh"
-tmux bind-key M run-shell -b "$CURRENT_DIR/scripts/cancel.sh"
-tmux bind-key M-m run-shell -b "$CURRENT_DIR/scripts/notify.sh refocus"
+tmux bind-key -N "Start monitoring pane and notify when it finishes"       a   run-shell -b "$CURRENT_DIR/scripts/notify.sh"
+tmux bind-key -N "Start monitoring pane and return focus when it finishes" M-a run-shell -b "$CURRENT_DIR/scripts/cancel.sh"
+tmux bind-key -N "Cancel monitoring of pane"                               A   run-shell -b "$CURRENT_DIR/scripts/notify.sh refocus"
